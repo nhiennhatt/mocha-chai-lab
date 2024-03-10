@@ -1,6 +1,6 @@
 {
   "useTabs": false,
   "endOfLine": "crlf",
-  "printWidth": 100,
+  "printWidth": 80,
   "singleQuote": false
 }

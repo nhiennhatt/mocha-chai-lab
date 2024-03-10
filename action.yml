@@ -1,0 +1,8 @@
+name: 'MongoDB'
+description: 'MongoDB'
+runs:
+  using: 'docker'
+  image: '-d -p 27017:27017 mongo:5.0.25'
+  env:
+    MONGO_INITDB_ROOT_USERNAME: root
+    MONGO_INITDB_ROOT_PASSWORD: 123456
