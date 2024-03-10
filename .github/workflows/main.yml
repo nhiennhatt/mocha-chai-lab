@@ -18,4 +18,6 @@ jobs:
             cache: 'yarn'
       - run: yarn install --frozen-lockfil
       - run: yarn start
+        env:
+          MONGOB_URL: mongodb://root:123456@127.0.0.1:27017
       - run: yarn test
