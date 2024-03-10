@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
-    "test": "mocha --timeout 20000 -r chai/register-expect.js src/test/*.spec.js"
+    "test": "mocha --timeout 20000 -r chai/register-expect.js src/test/**/*.spec.js"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
