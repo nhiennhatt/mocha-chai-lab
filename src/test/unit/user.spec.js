@@ -1,15 +1,17 @@
 const mongoose = require("mongoose");
 const UserService = require("../../service/user.service");
 const { userModel } = require("../../model/user.model");
-
 const userService = new UserService();
 
-before(() => {
-  return mongoose.connect("mongodb://root:123456@127.0.0.1:27017")
+before((done) => {
+  mongoose.connect("mongodb://root:123456@127.0.0.1:27017")
     .then(() => {
       return userModel.deleteMany({
         username: { $in: ["21415", "444222"] }
       });
+    })
+    .then(() => {
+      done();
     });
 });
 

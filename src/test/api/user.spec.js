@@ -1,23 +1,17 @@
-describe("Test /user", function() {
-  describe("/user/create", function() {
+const request = require("supertest");
+const app = require("../../app");
+
+describe("Test /user", () => {
+  describe("/user/create", () => {
     it("Case 1: Normal", (done) => {
-      fetch("http://localhost:3000/user/create", {
-        method: "POST",
-        body: JSON.stringify({
-          username: "315325",
-          password: "1643636233"
-        }),
-        headers: {
-          "Content-Type": "application/json"
-        }
-      }).then((res) => {
-        return res.json()
-      }).then((data) => {
-        expect(data.message).to.eq("Success");
-        done();
-      }).catch((error) => {
-        done(error)
-      })
+      request(app)
+        .post('/user/create')
+        .send({username: "hiew5234qfen", password: "124124"})
+        .end((err, res) => {
+          if (err) return done(err);
+          expect(res.body.message).to.eq("Success");
+          return done();
+        })
     });
   })
 })
