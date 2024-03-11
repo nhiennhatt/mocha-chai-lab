@@ -4,7 +4,7 @@ const { userModel } = require("../../model/user.model");
 const userService = new UserService();
 
 before((done) => {
-  mongoose.connect("mongodb://root:123456@127.0.0.1:27017")
+  mongoose.connect(process.env.MONGO_URL)
     .then(() => {
       return userModel.deleteMany({
         username: { $in: ["21415", "444222"] }

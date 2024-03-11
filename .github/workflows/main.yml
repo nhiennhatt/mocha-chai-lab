@@ -14,6 +14,7 @@ jobs:
             node-version: ${{ matrix.node-version }}
             cache: 'yarn'
       - run: yarn install --frozen-lockfil
-        env:
-          MONGOB_URL: ${{ secrets.MONGOB_URL }}
-      - run: yarn test
+      - env:
+          MONGO_URL: ${{ secrets.MONGO_URL }}
+          APP_PORT: ${{ env.PORT }}
+        run: yarn test
