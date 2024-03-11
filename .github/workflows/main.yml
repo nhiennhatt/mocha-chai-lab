@@ -8,9 +8,6 @@ jobs:
         node-version: [ 21.x ]
     steps:
       - uses: actions/checkout@v3
-      - name: Start MongoDB
-        id: MongoDB
-        uses: ./
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
@@ -18,5 +15,5 @@ jobs:
             cache: 'yarn'
       - run: yarn install --frozen-lockfil
         env:
-          MONGOB_URL: mongodb://root:123456@127.0.0.1:27017
+          MONGOB_URL: ${{ secrets.MONGOB_URL }}
       - run: yarn test

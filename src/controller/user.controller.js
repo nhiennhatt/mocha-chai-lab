@@ -17,3 +17,17 @@ module.exports.createUser =  function (req, res) {
         })
     })
 }
+
+module.exports.deleteUser = function(req, res) {
+  const username = req.body.username;
+  userService.deleteUser(username)
+    .then((data) => {
+      if (data.deletedCount === 1){
+        res.status(204).end();
+      } else {
+        res.status(404).json({
+          message: "Not found"
+        });
+      }
+    })
+}
